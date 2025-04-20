@@ -24,7 +24,7 @@ function App() {
     <div style={{ backgroundColor: "#f2f2f2" }}>
       <div className="grid grid-cols-1 md:grid-cols-3 h-screen">
         <div className="col-span-2">
-          <MapContainer center={[59.3293, 18.0686]} zoom={6} className="h-full w-full">
+          <MapContainer center={[59.3293, 18.0686]} zoom={6} style={{ height: "100%", width: "100%" }}>
             <TileLayer
               attribution='&copy; OpenStreetMap'
               url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
