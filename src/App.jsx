@@ -21,47 +21,49 @@ function App() {
   });
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-3 h-screen">
-      <div className="col-span-2">
-        <MapContainer center={[59.3293, 18.0686]} zoom={6} className="h-full w-full">
-          <TileLayer
-            attribution='&copy; OpenStreetMap'
-            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-          />
-          {filteredStations.map((station) => (
-            <Marker key={station.id} position={[station.lat, station.lng]}>
-              <Popup>
-                <strong>{station.name}</strong><br />
-                Operatör: {station.operator}<br />
-                Pris: {station.price ?? "Okänt"} kr/kWh<br />
-                Typ: {station.type}<br />
-                Effekt: {station.power} kW
-              </Popup>
-            </Marker>
-          ))}
-        </MapContainer>
-      </div>
-      <div className="p-4 overflow-y-auto">
-        <h2 className="text-xl font-bold mb-4">Laddstationer</h2>
-        <div className="mb-4">
-          <label className="flex items-center space-x-2">
-            <input type="checkbox" checked={filterAC} onChange={() => setFilterAC(!filterAC)} />
-            <span>Visa AC</span>
-          </label>
-          <label className="flex items-center space-x-2">
-            <input type="checkbox" checked={filterDC} onChange={() => setFilterDC(!filterDC)} />
-            <span>Visa DC</span>
-          </label>
+    <div style={{ backgroundColor: "#f2f2f2" }}>
+      <div className="grid grid-cols-1 md:grid-cols-3 h-screen">
+        <div className="col-span-2">
+          <MapContainer center={[59.3293, 18.0686]} zoom={6} className="h-full w-full">
+            <TileLayer
+              attribution='&copy; OpenStreetMap'
+              url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+            />
+            {filteredStations.map((station) => (
+              <Marker key={station.id} position={[station.lat, station.lng]}>
+                <Popup>
+                  <strong>{station.name}</strong><br />
+                  Operatör: {station.operator}<br />
+                  Pris: {station.price ?? "Okänt"} kr/kWh<br />
+                  Typ: {station.type}<br />
+                  Effekt: {station.power} kW
+                </Popup>
+              </Marker>
+            ))}
+          </MapContainer>
         </div>
-        {filteredStations.map((station) => (
-          <div key={station.id} className="border p-2 mb-2 rounded">
-            <p className="font-semibold">{station.name}</p>
-            <p>Operatör: {station.operator}</p>
-            <p>Pris: {station.price ?? "Okänt"} kr/kWh</p>
-            <p>Typ: {station.type}</p>
-            <p>Effekt: {station.power} kW</p>
+        <div className="p-4 overflow-y-auto">
+          <h2 className="text-xl font-bold mb-4">Laddstationer</h2>
+          <div className="mb-4">
+            <label className="flex items-center space-x-2">
+              <input type="checkbox" checked={filterAC} onChange={() => setFilterAC(!filterAC)} />
+              <span>Visa AC</span>
+            </label>
+            <label className="flex items-center space-x-2">
+              <input type="checkbox" checked={filterDC} onChange={() => setFilterDC(!filterDC)} />
+              <span>Visa DC</span>
+            </label>
           </div>
-        ))}
+          {filteredStations.map((station) => (
+            <div key={station.id} className="border p-2 mb-2 rounded">
+              <p className="font-semibold">{station.name}</p>
+              <p>Operatör: {station.operator}</p>
+              <p>Pris: {station.price ?? "Okänt"} kr/kWh</p>
+              <p>Typ: {station.type}</p>
+              <p>Effekt: {station.power} kW</p>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );
