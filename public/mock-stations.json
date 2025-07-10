@@ -1,0 +1,24 @@
+{
+  "stations": [
+    {
+      "id": 1,
+      "name": "Stora Torget Laddstation",
+      "operator": "InCharge",
+      "price": 3.5,
+      "type": "AC",
+      "power": 22,
+      "lat": 59.3293,
+      "lng": 18.0686
+    },
+    {
+      "id": 2,
+      "name": "Snabbladdare Malmö",
+      "operator": "E.ON",
+      "price": 4.8,
+      "type": "DC",
+      "power": 150,
+      "lat": 55.6050,
+      "lng": 13.0038
+    }
+  ]
+}
