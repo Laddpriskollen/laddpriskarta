@@ -1,3 +1,4 @@
+import './index.css';
 import 'leaflet/dist/leaflet.css';
 import './index.css';
 import React from "react";
